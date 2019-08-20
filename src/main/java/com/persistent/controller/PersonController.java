@@ -17,7 +17,8 @@ public class PersonController {
 	PersonService personService;
 	
 	@RequestMapping("/person/all")
-	public Map<String, Person> getAllPerson() {		
+	public Map<String, Person> getAllPerson() {	
+		System.out.println("*************** Inside getAllPerson ************");
 		return personService.getAllPerson();		
 	}
 	
