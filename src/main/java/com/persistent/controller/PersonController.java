@@ -23,7 +23,8 @@ public class PersonController {
 	}
 	
 	@RequestMapping("/person/{id}")
-	public Person getPerson(@PathVariable("id") String id) {		
+	public Person getPerson(@PathVariable("id") String id) {
+		System.out.println("*************** Inside getPerson ************");
 		return personService.getPerson(id);		
 	}
 	
