@@ -1,6 +1,9 @@
 package com.persistent.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +22,15 @@ public class PersonController {
 	@RequestMapping("/person/all")
 	public Map<String, Person> getAllPerson() {		
 		return personService.getAllPerson();		
+	}
+	
+	@RequestMapping("/person/list")
+	public List<Person> getListPerson() {
+		List<Person> list = new ArrayList<Person>();
+		for(Entry<String, Person> person : personService.getAllPerson().entrySet()) {
+			list.add(person.getValue());
+		}
+		return list;		
 	}
 	
 	@RequestMapping("/person/{id}")
